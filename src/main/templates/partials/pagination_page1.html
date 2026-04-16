@@ -1,0 +1,26 @@
+<div class="p-4">
+  <h3 class="text-lg font-bold mb-3">Page 1</h3>
+  <table class="table table-sm mb-4">
+    <tbody>
+      <tr>
+        <td class="w-8"><span class="avatar avatar-sm">1</span></td>
+        <td>Item One</td>
+      </tr>
+      <tr>
+        <td><span class="avatar avatar-sm">2</span></td>
+        <td>Item Two</td>
+      </tr>
+      <tr>
+        <td><span class="avatar avatar-sm">3</span></td>
+        <td>Item Three</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pagination">
+    <li><a href="#" class="disabled">&laquo;</a></li>
+    <li><a href="#" class="active" hx-get="/pagination-content?page=1" hx-target="#pagination-container" hx-swap="innerHTML">1</a></li>
+    <li><a href="#" hx-get="/pagination-content?page=2" hx-target="#pagination-container" hx-swap="innerHTML">2</a></li>
+    <li><a href="#" hx-get="/pagination-content?page=3" hx-target="#pagination-container" hx-swap="innerHTML">3</a></li>
+    <li><a href="#" hx-get="/pagination-content?page=2" hx-target="#pagination-container" hx-swap="innerHTML">&raquo;</a></li>
+  </ul>
+</div>

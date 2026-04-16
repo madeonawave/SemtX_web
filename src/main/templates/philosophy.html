@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="semtx philosophy - Why semantic HTML/CSS matters and how it works better with coding agents">
+  <title>Philosophy - semtx</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/semtx.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-css.min.js"></script>
+  <script src="{% static 'js/htmx.js' %}"></script>
+
+  <style>
+    body { font-family: var(--font-sans); }
+    .demo-section { padding: var(--space-8) var(--space-4); border-bottom: var(--border-w) solid var(--border); }
+    .demo-section:last-child { border-bottom: none; }
+    code.language-html { background: #1e1e2e; color: #a6e3a1; padding: var(--space-2) var(--space-3); border-radius: var(--radius); font-family: var(--font-mono); font-size: var(--fs-sm); display: block; margin: var(--space-2) 0; white-space: pre-wrap; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: var(--space-4) 0; }
+    .comparison-table th, .comparison-table td { padding: var(--space-3); border: var(--border-w) solid var(--border); text-align: left; }
+    .comparison-table th { background: var(--bg-mantle); font-weight: 600; }
+    .comparison-table .winner { color: var(--green); font-weight: 600; }
+    .comparison-table .loser { color: var(--text-sub); }
+    .bloated-example { opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="/" class="navbar-brand">SemtX</a>
+      <ul class="navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/philosophy" class="text-primary">Philosophy</a></li>
+        <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark')">Toggle Theme</button></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="container py-8">
+      <div class="text-center">
+        <h1>Philosophy</h1>
+        <p class="text-xl text-secondary mb-6">Why semantic HTML/CSS matters</p>
+      </div>
+    </section>
+
+    <!-- Semantic HTML Section -->
+    <section class="container demo-section">
+      <h2>The Case for Semantic HTML</h2>
+      <p class="subtitle mb-6">Class names should describe <em>what</em> elements are, not <em>how</em> they look.</p>
+
+      <div class="two-col">
+        <div class="card-flat">
+          <p class="label-uppercase">SemtX: Semantic Classes</p>
+
+<div class="form-group">
+  <label class="form-label">Email</label>
+  <input type="email" class="form-input" placeholder="you@example.com">
+</div>
+
+<button class="btn btn-primary">Submit</button>
+
+<div class="card my-4">
+  <header>Card Title</header>
+  <div class="card-body">Content</div>
+  <footer>Actions</footer>
+</div>
+
+          <pre><code class="language-html">&lt;div class="form-group"&gt;
+  &lt;label class="form-label"&gt;Email&lt;/label&gt;
+  &lt;input class="form-input"&gt;
+&lt;/div&gt;
+
+&lt;button class="btn btn-primary"&gt;Submit&lt;/button&gt;
+
+&lt;div class="card"&gt;
+  &lt;header&gt;Title&lt;/header&gt;
+  &lt;div class="card-body"&gt;Content&lt;/div&gt;
+  &lt;footer&gt;Actions&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Why It Matters</p>
+          <p class="text-sm mb-4">Semantic class names describe <em>what</em> an element is, not <em>how</em> it looks. This creates code that is easier to read, maintain, and collaborate on. When you use <code>.btn-primary</code> instead of a dozen utility classes, your intent is clear.</p>
+          <p class="text-sm mb-4">For AI coding assistants, semantic classes provide context that utility-first frameworks cannot. An AI can immediately understand that <code>.card</code> is a container component, whereas <code>flex p-4 rounded-lg shadow</code> requires the AI to mentally assemble these into a component pattern.</p>
+          <ul class="stack-sm">
+            <li><strong>Readable</strong> - Class names reveal purpose</li>
+            <li><strong>Maintainable</strong> - Changes propagate automatically</li>
+            <li><strong>AI-Friendly</strong> - Coding agents understand intent</li>
+            <li><strong>Portable</strong> - Works across projects</li>
+            <li><strong>Accessible</strong> - Semantic = accessible by default</li>
+            <li><strong>SEO-Friendly</strong> - Search engines understand structure</li>
+            <li><strong>Consistent</strong> - Uniform patterns across codebase</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HTML5 Semantic Elements -->
+    <section class="container demo-section">
+      <h2>HTML5 Semantic Elements</h2>
+      <p class="subtitle mb-6">Use native HTML elements that describe their meaning.</p>
+
+      <div class="two-col">
+        <div class="card-flat">
+          <p class="label-uppercase">SemtX Works with Native Elements</p>
+
+<main>
+  <article>
+    <header>
+      <h2>Article Title</h2>
+    </header>
+    <p>Article content goes here...</p>
+    <footer>
+      <p>Author info</p>
+    </footer>
+  </article>
+
+  <aside>
+    <h3>Related Links</h3>
+    <nav>
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+    </nav>
+  </aside>
+</main>
+
+<figure>
+  <img src="https://placehold.co/400x200" alt="Sample">
+  <figcaption>Figure caption</figcaption>
+</figure>
+
+          <pre><code class="language-html">&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;&lt;h2&gt;Title&lt;/h2&gt;&lt;/header&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+    &lt;footer&gt;Author info&lt;/footer&gt;
+  &lt;/article&gt;
+  
+  &lt;aside&gt;
+    &lt;nav&gt;...&lt;/nav&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;figure&gt;
+  &lt;img src="..."&gt;
+  &lt;figcaption&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Benefits of Semantic Elements</p>
+          <ul class="stack-sm">
+            <li><strong>&lt;main&gt;</strong> - Primary content region</li>
+            <li><strong>&lt;article&gt;</strong> - Self-contained content</li>
+            <li><strong>&lt;section&gt;</strong> - Thematic grouping</li>
+            <li><strong>&lt;aside&gt;</strong> - Sidebar content</li>
+            <li><strong>&lt;header&gt;</strong> - Intro/navigation</li>
+            <li><strong>&lt;footer&gt;</strong> - Footer info</li>
+            <li><strong>&lt;nav&gt;</strong> - Navigation links</li>
+            <li><strong>&lt;figure&gt;</strong> - Images with caption</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Benefits -->
+    <section class="container demo-section">
+      <h2>SEO-Friendly by Design</h2>
+      <p class="subtitle mb-6">Semantic HTML helps search engines understand your content.</p>
+
+      <div class="three-col">
+        <div class="card-flat text-center">
+          <div class="text-3xl mb-2">🔍</div>
+          <h3 class="font-semibold mb-2">Better Indexing</h3>
+          <p class="text-sm text-secondary">Search engines prioritize content in &lt;main&gt;, &lt;article&gt;, and heading elements.</p>
+        </div>
+
+        <div class="card-flat text-center">
+          <div class="text-3xl mb-2">📊</div>
+          <h3 class="font-semibold mb-2">Rich Snippets</h3>
+          <p class="text-sm text-secondary">Structured content enables rich results in search (articles, products, reviews).</p>
+        </div>
+
+        <div class="card-flat text-center">
+          <div class="text-3xl mb-2">⚡</div>
+          <h3 class="font-semibold mb-2">Faster Crawling</h3>
+          <p class="text-sm text-secondary">Clear structure helps bots find content faster, improving SEO performance.</p>
+        </div>
+      </div>
+
+      <div class="card-flat mt-6">
+        <p class="label-uppercase">Example: Proper Heading Hierarchy</p>
+        <pre><code class="language-html">&lt;main&gt;
+  &lt;h1&gt;Page Title&lt;/h1&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Article Title&lt;/h2&gt;
+    &lt;h3&gt;Subsection&lt;/h3&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+        <p class="text-sm text-secondary mt-4">Search engines use heading hierarchy to understand content structure and importance.</p>
+      </div>
+    </section>
+
+    <!-- Code Quality Section -->
+    <section class="container demo-section">
+      <h2>Code Quality Benefits</h2>
+      <p class="subtitle mb-6">Semantic HTML/CSS leads to better code overall.</p>
+
+      <div class="two-col">
+        <div class="card-flat">
+          <p class="label-uppercase">Easier to Read</p>
+          <ul class="stack-sm">
+            <li>Class names describe <em>purpose</em>, not appearance</li>
+            <li>New developers understand code faster</li>
+            <li>Code reviews are more efficient</li>
+            <li>Self-documenting markup</li>
+          </ul>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Greater Visibility</p>
+          <ul class="stack-sm">
+            <li>Component patterns are obvious</li>
+            <li>Easy to search for all cards, forms, buttons</li>
+            <li>Global styles in one place</li>
+            <li>Consistent naming eliminates confusion</li>
+          </ul>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Consistent Code</p>
+          <ul class="stack-sm">
+            <li>Same patterns everywhere</li>
+            <li>No reinventing styling solutions</li>
+            <li>Team-wide convention</li>
+            <li>Easy to enforce standards</li>
+          </ul>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Example: Finding All Buttons</p>
+          <p class="text-sm text-secondary mb-2">With Tailwind:</p>
+          <pre class="text-xs"><code>grep -r "bg-blue-500\|text-white\|px-4 py-2" .</code></pre>
+          <p class="text-sm text-secondary mb-2 mt-4">With SemtX:</p>
+          <pre class="text-xs"><code>grep -r "btn" .</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tailwind Bloat Example -->
+    <section class="container demo-section">
+      <h2>The Tailwind Bloating Problem</h2>
+      <p class="subtitle mb-6">When every style decision becomes a class name.</p>
+
+      <div class="card-flat mb-6" style="max-width: 800px;">
+        <p class="label-uppercase">A Simple Card in Tailwind</p>
+        <pre><code class="language-html bloated-example">&lt;div class="max-w-sm rounded overflow-hidden shadow-lg bg-white"&gt;
+  &lt;img class="w-full h-48 object-cover" src="..." alt="Card"&gt;
+  &lt;div class="px-6 py-4"&gt;
+    &lt;div class="font-bold text-xl mb-2"&gt;Card Title&lt;/div&gt;
+    &lt;p class="text-gray-700 text-base"&gt;
+      Some text here.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="px-6 pt-4 pb-2"&gt;
+    &lt;span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"&gt;Tag&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <p class="text-sm text-secondary mt-4">
+          That's 187 characters of class names for a card. Now imagine maintaining 50 similar cards.
+        </p>
+      </div>
+
+      <div class="card-flat">
+        <p class="label-uppercase">The Same Card in SemtX</p>
+        <pre><code class="language-html">&lt;div class="card"&gt;
+  &lt;img src="..." alt="Card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h3&gt;Card Title&lt;/h3&gt;
+    &lt;p&gt;Some text here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer&gt;
+    &lt;span class="badge"&gt;Tag&lt;/span&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="container demo-section">
+      <h2>Tailwind vs SemtX</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Tailwind</th>
+            <th>SemtX</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Class intent</td>
+            <td class="loser">Describes style</td>
+            <td class="winner">Describes component</td>
+          </tr>
+          <tr>
+            <td>Readability</td>
+            <td class="loser">Low - unreadable markup</td>
+            <td class="winner">High - semantic</td>
+          </tr>
+          <tr>
+            <td>File size</td>
+            <td class="loser">~50-100KB+</td>
+            <td class="winner">~8KB</td>
+          </tr>
+          <tr>
+            <td>AI understanding</td>
+            <td class="loser">Poor - scattered styles</td>
+            <td class="winner">Good - clear structure</td>
+          </tr>
+          <tr>
+            <td>HTMX integration</td>
+            <td class="loser">Manual</td>
+            <td class="winner">Built-in</td>
+          </tr>
+          <tr>
+            <td>Learning curve</td>
+            <td class="loser">Steep - memorize classes</td>
+            <td class="winner">Low - intuitive names</td>
+          </tr>
+          <tr>
+            <td>Maintainability</td>
+            <td class="loser">Change everywhere</td>
+            <td class="winner">Single point of change</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Coding Agents Section -->
+    <section class="container demo-section">
+      <h2>Why SemtX Works Better with AI</h2>
+      <p class="subtitle mb-6">Coding agents (LLMs) understand semantic class names better.</p>
+
+      <div class="two-col">
+        <div class="card-flat">
+          <p class="label-uppercase">The AI Prompt Problem</p>
+          <div class="stack-sm">
+            <p>When you ask an AI to "make this button bigger", it needs to understand which classes control the button size.</p>
+
+            <p class="font-semibold mt-4">With SemtX:</p>
+            <p class="text-secondary">The AI sees <code>btn btn-primary</code> and knows exactly what to change. It might add <code>btn-lg</code> or modify <code>.btn</code> in CSS.</p>
+
+            <p class="font-semibold mt-4">With Tailwind:</p>
+            <p class="text-secondary">The AI must parse <code>px-3 py-2 text-sm font-medium border-1 border-solid rounded-md</code> to figure out it is related to a <code>button</code>, then find and modify multiple utility classes.</p>
+           </div>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">AI-Friendly Patterns</p>
+          <div class="stack-sm">
+            <div class="alert alert-info">
+              <span class="alert-icon">ℹ</span>
+              <div class="alert-content">
+                <div class="alert-title">Good Prompt</div>
+                <p>"Add a form with email and password inputs"</p>
+              </div>
+            </div>
+
+            <p class="text-sm">The AI generates:</p>
+            <pre><code class="language-html">&lt;div class="form-group"&gt;
+  &lt;label class="form-label"&gt;Email&lt;/label&gt;
+  &lt;input type="email" class="form-input"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;label class="form-label"&gt;Password&lt;/label&gt;
+  &lt;input type="password" class="form-input"&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Component Discovery</p>
+          <p>AI agents can easily find all components by searching for class names like <code>.card</code>, <code>.btn</code>, <code>.form-input</code>. No need to search for scattered utilities.</p>
+        </div>
+
+        <div class="card-flat">
+          <p class="label-uppercase">Consistent Changes</p>
+          <p>When you ask an AI to "update all buttons to use the new primary color", it only needs to change <code>--primary</code> in CSS. With Tailwind, it must find every <code>bg-blue-500</code> pattern.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HTMX Integration -->
+    <section class="container demo-section">
+      <h2>Built for HTMX</h2>
+      <p class="subtitle mb-6">SemtX includes native HTMX patterns that work without extra code.</p>
+
+      <div class="card-flat mb-6">
+        <p class="label-uppercase">Loading Indicator</p>
+        <pre><code class="language-html">&lt;button hx-get="/data" hx-indicator=".loading"&gt;
+  Load
+  &lt;span class="htmx-indicator loading"&gt;Loading...&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- CSS handles visibility automatically --&gt;</code></pre>
+      </div>
+
+      <div class="card-flat mb-6">
+        <p class="label-uppercase">Progress Bar</p>
+        <pre><code class="language-html">&lt;div class="progress"&gt;
+  &lt;div class="progress-bar" style="width: 60%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Or indeterminate --&gt;
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar indeterminate"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div class="card-flat">
+        <p class="label-uppercase">Search with Loading</p>
+        <pre><code class="language-html">&lt;div class="input-search"&gt;
+  &lt;input hx-get="/search" hx-trigger="input changed delay:300ms"&gt;
+  &lt;span class="input-search-icon"&gt;🔍&lt;/span&gt;
+  &lt;span class="htmx-indicator spinner"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="container demo-section">
+      <h2>Summary</h2>
+
+      <div class="three-col">
+        <div class="card-flat text-center">
+          <h3 class="text-xl font-semibold mb-2">Semantic First</h3>
+          <p class="text-secondary">Class names describe what elements ARE, not how they look. This makes code readable and maintainable.</p>
+        </div>
+
+        <div class="card-flat text-center">
+          <h3 class="text-xl font-semibold mb-2">AI-Friendly</h3>
+          <p class="text-secondary">Coding agents understand semantic classes. They can find, modify, and generate components faster.</p>
+        </div>
+
+        <div class="card-flat text-center">
+          <h3 class="text-xl font-semibold mb-2">HTMX-Native</h3>
+          <p class="text-secondary">Built-in support for loading states, progress bars, and swap transitions. No extra JS needed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <p class="mb-4">SemtX - Minimal CSS for HTMX</p>
+        <p class="text-sm">Built with Catppuccin colors. OKLCH for modern color spaces.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Highlight all code blocks after page loads
+    function highlightCode() {
+      if (typeof Prism === 'undefined') return;
+      
+      document.querySelectorAll('pre code[class*="language-"]').forEach(function(block) {
+        // Get language from class
+        var match = block.className.match(/language-(\w+)/);
+        var lang = match ? match[1] : 'markup';
+        
+        // Get language definition
+        var language = Prism.languages[lang] || Prism.languages.markup;
+        
+        // Highlight and set HTML
+        block.innerHTML = Prism.highlight(block.textContent, language, lang);
+      });
+    }
+
+    // Use window.onload to ensure all scripts are loaded
+    window.addEventListener('load', function() {
+      setTimeout(highlightCode, 50);
+    });
+
+    // Also after HTMX swaps
+    document.body.addEventListener('htmx:afterSwap', function() {
+      setTimeout(highlightCode, 100);
+    });
+  </script>
+</body>
+</html>
