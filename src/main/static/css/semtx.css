@@ -76,7 +76,7 @@
 
 /* Dark Theme (Mocha) */
 :root.dark {
-  --primary: oklch(79% 12% 305deg);
+  --primary: ooklch(0.91 0.03 289.2);
   --primary-rgb: 203, 166, 247;
   --on-primary: oklch(21% 3% 284deg);
   --text: oklch(88% 4% 272deg);
@@ -655,8 +655,8 @@ ul, ol {
 
 .btn-outline {
   background: transparent;
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--text);
+  border-color: var(--border);
 }
 .btn-outline:hover {
   background: var(--primary);
@@ -1009,7 +1009,7 @@ ul, ol {
 .navbar-nav a,
 .navbar-nav button {
   padding: var(--space-2) var(--space-3);
-  color: var(--text-sub);
+  color: var(--text);
   border-radius: var(--radius);
   transition: all var(--trans-fast);
   text-decoration: none;
@@ -1273,8 +1273,8 @@ ul, ol {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(1px);
 }
 
 .modal-content {

@@ -16,13 +16,91 @@
     body { font-family: var(--font-sans); }
     .demo-section { padding: var(--space-8) var(--space-4); border-bottom: var(--border-w) solid var(--border); }
     .demo-section:last-child { border-bottom: none; }
-    code.language-html { background: #1e1e2e; color: #a6e3a1; padding: var(--space-2) var(--space-3); border-radius: var(--radius); font-family: var(--font-mono); font-size: var(--fs-sm); display: block; margin: var(--space-2) 0; white-space: pre-wrap; }
     .comparison-table { width: 100%; border-collapse: collapse; margin: var(--space-4) 0; }
     .comparison-table th, .comparison-table td { padding: var(--space-3); border: var(--border-w) solid var(--border); text-align: left; }
     .comparison-table th { background: var(--bg-mantle); font-weight: 600; }
     .comparison-table .winner { color: var(--green); font-weight: 600; }
     .comparison-table .loser { color: var(--text-sub); }
     .bloated-example { opacity: 0.85; }
+
+/* Syntax Highlighting - High Contrast */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--bg-surface);
+  border-radius: var(--radius);
+}
+
+pre[class*="language-"] {
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  overflow-x: auto;
+}
+
+/* Token colors - high contrast for light theme */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6b7280;
+}
+
+.token.punctuation {
+  color: #8b9bb4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b36e6e;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #15803d;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #b45309;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #818056;
+}
+
+.token.function,
+.token.class-name {
+  color: #c026d3;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #dc2626;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
   </style>
 </head>
 <body>
@@ -296,7 +374,7 @@
       <table class="comparison-table">
         <thead>
           <tr>
-            <th>Aspect</th>
+            <th></th>
             <th>Tailwind</th>
             <th>SemtX</th>
           </tr>

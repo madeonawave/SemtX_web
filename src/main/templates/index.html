@@ -19,8 +19,8 @@
     .demo-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
     .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-2); }
     .color-swatch { padding: var(--space-3); border-radius: var(--radius); text-align: center; font-size: var(--fs-xs); font-weight: 500; }
-    .color-swatch.light { color: #4c4f69; }
-    .color-swatch.dark { color: #cdd6f4; }
+    .color-swatch.light { color: oklch(1 0 0); }
+    .color-swatch.dark { color: oklch(0.22 0.01 272.71); }
 
     /* Syntax Highlighting - High Contrast */
 code[class*="language-"],
@@ -47,7 +47,7 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-  color: #374151;
+  color: #4b5563;
 }
 
 .token.property,
@@ -57,7 +57,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #b91c1c;
+  color: #991b1b;
 }
 
 .token.selector,
@@ -66,7 +66,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #15803d;
+  color: #166534;
 }
 
 .token.operator,
@@ -78,7 +78,7 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #7c3aed;
+  color: #4a5568;
 }
 
 .token.function,
@@ -145,17 +145,6 @@ pre[class*="language-"] {
 &lt;script src="{% static 'js/htmx.js' %}"&gt;&lt;/script&gt;</code></pre>
     </div>
 
-    <div class="card-flat mt-4">
-      <p class="label-uppercase">Dark Mode (Auto)</p>
-      <pre><code class="language-html">/* Automatically enabled via prefers-color-scheme */</code></pre>
-    </div>
-
-    <div class="card-flat mt-4">
-      <p class="label-uppercase">Manual Toggle</p>
-      <pre><code class="language-html">&lt;button onclick="document.documentElement.classList.toggle('dark')"&gt;
-  Toggle Theme
-&lt;/button&gt;</code></pre>
-    </div>
   </section>
 
   <!-- Color Palette -->
@@ -167,27 +156,27 @@ pre[class*="language-"] {
       <div>
         <h3 class="font-semibold mb-4">Light Theme</h3>
         <div class="color-grid">
-          <div class="color-swatch light" style="background: #8839ef; color: white;">Primary<br>#8839ef</div>
-          <div class="color-swatch light" style="background: #1e66f5; color: white;">Blue<br>#1e66f5</div>
-          <div class="color-swatch light" style="background: #40a02b; color: white;">Green<br>#40a02b</div>
-          <div class="color-swatch light" style="background: #d20f39; color: white;">Red<br>#d20f39</div>
-          <div class="color-swatch light" style="background: #fe640b; color: white;">Peach<br>#fe640b</div>
-          <div class="color-swatch light" style="background: #df8e1d; color: white;">Yellow<br>#df8e1d</div>
-          <div class="color-swatch light" style="background: #4c4f69; color: white;">Text<br>#4c4f69</div>
-          <div class="color-swatch light" style="background: #eff1f5;">Base<br>#eff1f5</div>
+          <div class="color-swatch light" style="background: oklch(55% 25% 297deg);">Primary<br>oklch(55% 25% 297deg)</div>
+          <div class="color-swatch light" style="background: oklch(56% 23% 262deg);">Blue<br>oklch(56% 23% 262deg)</div>
+          <div class="color-swatch light" style="background: oklch(63% 18% 140deg);">Green<br>oklch(63% 18% 140deg)</div>
+          <div class="color-swatch light" style="background: oklch(55% 22% 20deg);">Red<br>oklch(55% 22% 20deg)</div>
+          <div class="color-swatch light" style="background: oklch(69% 20% 42deg);">Peach<br>oklch(69% 20% 42deg)</div>
+          <div class="color-swatch light" style="background: oklch(71% 15% 68deg);">Yellow<br>oklch(71% 15% 68deg)</div>
+          <div class="color-swatch light" style="background: oklch(44% 4% 279deg);">Text<br>oklch(44% 4% 279deg)</div>
+          <div class="color-swatch " style="background: oklch(96% 1% 265deg);">Base<br>oklch(96% 1% 265deg)</div>
         </div>
       </div>
       <div>
         <h3 class="font-semibold mb-4">Dark Theme</h3>
         <div class="color-grid">
-          <div class="color-swatch dark" style="background: #cba6f7; color: #1e1e2e;">Primary<br>#cba6f7</div>
-          <div class="color-swatch dark" style="background: #89b4fa; color: #1e1e2e;">Blue<br>#89b4fa</div>
-          <div class="color-swatch dark" style="background: #a6e3a1; color: #1e1e2e;">Green<br>#a6e3a1</div>
-          <div class="color-swatch dark" style="background: #f38ba8; color: #1e1e2e;">Red<br>#f38ba8</div>
-          <div class="color-swatch dark" style="background: #fab387; color: #1e1e2e;">Peach<br>#fab387</div>
-          <div class="color-swatch dark" style="background: #f9e2af; color: #1e1e2e;">Yellow<br>#f9e2af</div>
-          <div class="color-swatch dark" style="background: #cdd6f4; color: #1e1e2e;">Text<br>#cdd6f4</div>
-          <div class="color-swatch dark" style="background: #1e1e2e;">Base<br>#1e1e2e</div>
+          <div class="color-swatch dark" style="background: oklch(79% 12% 305deg);">Primary<br>oklch(79% 12% 305deg)</div>
+          <div class="color-swatch dark" style="background: oklch(77% 11% 260deg);">Blue<br>oklch(77% 11% 260deg)</div>
+          <div class="color-swatch dark" style="background: oklch(86% 11% 143deg);">Green<br>oklch(86% 11% 143deg)</div>
+          <div class="color-swatch dark" style="background: oklch(76% 13% 3deg);">Red<br>oklch(76% 13% 3deg)</div>
+          <div class="color-swatch dark" style="background: oklch(82% 10% 53deg);">Peach<br>oklch(82% 10% 53deg)</div>
+          <div class="color-swatch dark" style="background: oklch(92% 7% 87deg);">Yellow<br>oklch(92% 7% 87deg)</div>
+          <div class="color-swatch dark" style="background: oklch(88% 4% 272deg);">Text<br>oklch(88% 4% 272deg)</div>
+          <div class="color-swatch light" style="background: oklch(24% 3% 284deg);">Base<br>oklch(24% 3% 284deg)</div>
         </div>
       </div>
     </div>
@@ -405,7 +394,8 @@ pre[class*="language-"] {
 
       <div class="card-flat">
         <p class="label-uppercase">Breadcrumb (HTMX)</p>
-        <ol class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <nav aria-label="Breadcrumb">
+  <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="#" 
                hx-get="/breadcrumb-content?page=home"
@@ -436,6 +426,7 @@ pre[class*="language-"] {
             </a>
           </li>
         </ol>
+</nav>
         <div id="breadcrumb-panel" class="card-body mt-3">
           <div id="breadcrumb-content">
             <div class="text-center text-secondary">Select a page...</div>
@@ -833,18 +824,23 @@ pre[class*="language-"] {
 
       <div class="card-flat">
         <p class="label-uppercase">Aside (Sidebar)</p>
-        <aside class="well">
-          <h4 class="font-semibold mb-2">Related Links</h4>
-          <nav>
-            <a href="#" class="block mb-1">Link One</a>
-            <a href="#" class="block mb-1">Link Two</a>
-          </nav>
-        </aside>
-        <pre><code class="language-html">&lt;aside&gt;
+        <div class="grid grid-cols-2 gap-4">
+          <aside class="sidebar">
+            <p class="label-uppercase mb-2">Menu</p>
+            <ul class="sidebar-nav">
+              <li><a href="#" class="active">Dashboard</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Settings</a></li>
+            </ul>
+          </aside>
+          <pre><code class="language-html">&lt;aside class="sidebar"&gt;
   &lt;nav&gt;
-    &lt;a href="#"&gt;Link One&lt;/a&gt;
+    &lt;a href="#"&gt;Dashboard&lt;/a&gt;
+    &lt;a href="#"&gt;Projects&lt;/a&gt;
   &lt;/nav&gt;
 &lt;/aside&gt;</code></pre>
+        </div>
       </div>
 
       <div class="card-flat">
