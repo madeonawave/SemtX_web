@@ -5,8 +5,8 @@
    ============================================ */
 :root {
   /* Color - Light Theme (Latte) */
-  --primary: oklch(55% 25% 297deg);
-  --primary-rgb: 136, 57, 239;
+  --primary: oklch(0.52 0.1 297.52);
+  --primary-rgb: rgb(112 91 155);
   --on-primary: oklch(100% 0% 0deg);
   --text: oklch(44% 4% 279deg);
   --text-sub: oklch(49% 4% 279deg);
@@ -17,13 +17,13 @@
   --border: oklch(86% 1% 268deg);
 
   /* Accent Colors */
-  --red: oklch(55% 22% 20deg);
-  --peach: oklch(69% 20% 42deg);
-  --yellow: oklch(71% 15% 68deg);
-  --green: oklch(63% 18% 140deg);
-  --teal: oklch(60% 10% 201deg);
-  --sky: oklch(68% 14% 235deg);
-  --blue: oklch(56% 23% 262deg);
+  --red: oklch(55% 28% 20deg);
+  --peach: oklch(69% 26% 42deg);
+  --yellow: oklch(71% 20% 68deg);
+  --green: oklch(63% 24% 140deg);
+  --teal: oklch(60% 16% 201deg);
+  --sky: oklch(68% 18% 235deg);
+  --blue: oklch(56% 28% 262deg);
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -74,10 +74,10 @@
   --container-xl: 1280px;
 }
 
-/* Dark Theme (Mocha) */
+/* Dark Theme */
 :root.dark {
-  --primary: ooklch(0.91 0.03 289.2);
-  --primary-rgb: 203, 166, 247;
+  --primary: oklch(0.73 0.04 96.23);
+  --primary-rgb: rgb(112 91 155);
   --on-primary: oklch(21% 3% 284deg);
   --text: oklch(88% 4% 272deg);
   --text-sub: oklch(82% 4% 273deg);
@@ -87,13 +87,13 @@
   --bg-overlay: oklch(39% 3% 276deg);
   --border: oklch(32% 3% 282deg);
 
-  --red: oklch(76% 13% 3deg);
-  --peach: oklch(82% 10% 53deg);
-  --yellow: oklch(92% 7% 87deg);
-  --green: oklch(86% 11% 143deg);
-  --teal: oklch(86% 8% 183deg);
-  --sky: oklch(85% 8% 210deg);
-  --blue: oklch(77% 11% 260deg);
+  --red: oklch(0.54 0.12 5.88);
+  --peach: oklch(82% 15% 53deg);
+  --yellow: oklch(92% 12% 87deg);
+  --green: oklch(86% 16% 143deg);
+  --teal: oklch(86% 14% 183deg);
+  --sky: oklch(85% 14% 210deg);
+  --blue: oklch(77% 16% 260deg);
 
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
   --shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -102,8 +102,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --primary: oklch(79% 12% 305deg);
-    --primary-rgb: 203, 166, 247;
+    --primary: oklch(0.73 0.04 96.23);
+    --primary-rgb: rgb(112 91 155);
     --on-primary: oklch(21% 3% 284deg);
     --text: oklch(88% 4% 272deg);
     --text-sub: oklch(82% 4% 273deg);
@@ -113,13 +113,13 @@
     --bg-overlay: oklch(39% 3% 276deg);
     --border: oklch(32% 3% 282deg);
 
-    --red: oklch(76% 13% 3deg);
-    --peach: oklch(82% 10% 53deg);
-    --yellow: oklch(92% 7% 87deg);
-    --green: oklch(86% 11% 143deg);
-    --teal: oklch(86% 8% 183deg);
-    --sky: oklch(85% 8% 210deg);
-    --blue: oklch(77% 11% 260deg);
+    --red: oklch(76% 18% 3deg);
+    --peach: oklch(82% 15% 53deg);
+    --yellow: oklch(92% 12% 87deg);
+    --green: oklch(86% 16% 143deg);
+    --teal: oklch(86% 14% 183deg);
+    --sky: oklch(85% 14% 210deg);
+    --blue: oklch(77% 16% 260deg);
 
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
     --shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -1423,7 +1423,7 @@ ul, ol {
 }
 
 .badge-primary { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
-.badge-success { background: var(--green); color: oklch(100% 0% 0deg); border-color: var(--green); }
+.badge-success { background: var(--green); color: var(--on-primary); border-color: var(--green); }
 .badge-warning { background: var(--peach); color: oklch(30% 10% 30deg); border-color: var(--peach); }
 .badge-error { background: var(--red); color: oklch(100% 0% 0deg); border-color: var(--red); }
 
@@ -1980,7 +1980,7 @@ hr {
 /* Pending / Fade In */
 .pending {
   opacity: 0;
-  transition: opacity 800ms ease;
+  transition: opacity 600ms ease;
 }
 
 .pending.ready {
