@@ -7,101 +7,11 @@
   <title>Philosophy - semtx</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/semtx.css' %}">
+  <link rel="stylesheet" href="{% static 'css/demo.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-markup.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-css.min.js"></script>
   <script src="{% static 'js/htmx.js' %}"></script>
-
-  <style>
-    body { font-family: var(--font-sans); }
-    .demo-section { padding: var(--space-8) var(--space-4); border-bottom: var(--border-w) solid var(--border); }
-    .demo-section:last-child { border-bottom: none; }
-    .comparison-table { width: 100%; border-collapse: collapse; margin: var(--space-4) 0; }
-    .comparison-table th, .comparison-table td { padding: var(--space-3); border: var(--border-w) solid var(--border); text-align: left; }
-    .comparison-table th { background: var(--bg-mantle); font-weight: 600; }
-    .comparison-table .winner { color: var(--green); font-weight: 600; }
-    .comparison-table .loser { color: var(--text-sub); }
-    .bloated-example { opacity: 0.85; }
-
-/* Syntax Highlighting - High Contrast */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  background: var(--bg-surface);
-  border-radius: var(--radius);
-}
-
-pre[class*="language-"] {
-  padding: var(--space-4);
-  margin: var(--space-4) 0;
-  overflow-x: auto;
-}
-
-/* Token colors - high contrast for light theme */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #6b7280;
-}
-
-.token.punctuation {
-  color: #8b9bb4;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #b36e6e;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #15803d;
-}
-
-.token.operator,
-.token.entity,
-.token.url {
-  color: #b45309;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #818056;
-}
-
-.token.function,
-.token.class-name {
-  color: #c026d3;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: #dc2626;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-  </style>
 </head>
 <body>
   <main>
@@ -335,7 +245,7 @@ pre[class*="language-"] {
       <h2>The Tailwind Bloating Problem</h2>
       <p class="subtitle mb-6">When every style decision becomes a class name.</p>
 
-      <div class="card-flat mb-6" style="max-width: 800px;">
+      <div class="card-flat mb-6">
         <p class="label-uppercase">A Simple Card in Tailwind</p>
         <pre><code class="language-html bloated-example">&lt;div class="max-w-sm rounded overflow-hidden shadow-lg bg-white"&gt;
   &lt;img class="w-full h-48 object-cover" src="..." alt="Card"&gt;
@@ -549,6 +459,11 @@ pre[class*="language-"] {
     document.body.addEventListener('htmx:afterSwap', function() {
       setTimeout(highlightCode, 100);
     });
+
+    // Set light theme as default (overrides system preference via :root:not(.light))
+    if (!document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.add('light');
+    }
   </script>
 </body>
 </html>

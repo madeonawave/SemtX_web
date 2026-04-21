@@ -10,102 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/semtx.css' %}">
+  <link rel="stylesheet" href="{% static 'css/demo.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-markup.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-css.min.js"></script>
   <script src="{% static 'js/htmx.js' %}"></script>
 
-  <style>
-    body { font-family: var(--font-sans); }
-    .hero-title { font-family: 'Stack Sans Notch', sans-serif; font-weight: 700; font-size: 4rem; }
-    .demo-section { padding: var(--space-8) var(--space-4); border-bottom: var(--border-w) solid var(--border); }
-    .demo-section:last-child { border-bottom: none; }
-    .demo-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
-    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-2); }
-    .color-swatch { padding: var(--space-3); border-radius: var(--radius); text-align: center; font-size: var(--fs-xs); font-weight: 500; }
-    .color-swatch.light { color: oklch(1 0 0); }
-    .color-swatch.dark { color: oklch(0.22 0.01 272.71); }
-
-    /* Syntax Highlighting - High Contrast */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  background: var(--bg-surface);
-  border-radius: var(--radius);
-}
-
-pre[class*="language-"] {
-  padding: var(--space-4);
-  margin: var(--space-4) 0;
-  overflow-x: auto;
-}
-
-/* Token colors - high contrast for light theme */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #6b7280;
-}
-
-.token.punctuation {
-  color: #737981;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #8a8032;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #3d8d42;
-}
-
-.token.operator,
-.token.entity,
-.token.url {
-  color: #b45309;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #6081b7;
-}
-
-.token.function,
-.token.class-name {
-  color: #c026d3;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: #dc2626;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-  </style>
 </head>
 <body>
   <main>
@@ -132,8 +42,6 @@ pre[class*="language-"] {
         <a href="https://cdn.jsdelivr.net/gh/madeonawave/semtx@main/semtx.css" class="btn btn-primary btn-lg" download>Download semtx.css</a>
         <a href="https://github.com/madeonawave/semtx" class="btn btn-outline btn-lg" target="_blank">View on GitHub</a>
       </div>
-      <pre style="margin-top: var(--space-8); text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;"><code class="language-html">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/madeonawave/semtx@main/semtx.css"&gt;
-&lt;script src="https://unpkg.com/htmx.org"&gt;&lt;/script&gt;</code></pre>
     </div>
   </section>
 
@@ -855,7 +763,7 @@ pre[class*="language-"] {
         <p class="label-uppercase">Figure with Figcaption</p>
           <div class="grid grid-cols-1 gap-4">
         <figure class="well">
-          <img src="https://placehold.co/300x150/8839ef/fff?text=Figure" alt="Sample" style="border-radius: var(--radius);">
+          <img src="https://placehold.co/300x150/9aa9cf/fff?text=" alt="Sample" style="border-radius: var(--radius);">
           <figcaption class="mt-2 text-sm">This is a figure caption</figcaption>
         </figure>
         <pre><code class="language-html">&lt;figure&gt;
@@ -1087,6 +995,11 @@ pre[class*="language-"] {
     document.body.addEventListener('htmx:afterSwap', function() {
       setTimeout(highlightCode, 100);
     });
+
+    // Set light theme as default (overrides system preference via :root:not(.light))
+    if (!document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.add('light');
+    }
   </script>
 </body>
 </html>
