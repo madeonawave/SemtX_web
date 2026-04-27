@@ -23,7 +23,7 @@
         <li><a href="/#components">Components</a></li>
         <li><a href="/#html5-elements">HTML5</a></li>
         <li><a href="/philosophy" class="text-primary">Philosophy</a></li>
-        <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark')">Toggle Theme</button></li>
+        <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
       </ul>
     </nav>
 
@@ -460,9 +460,11 @@
       setTimeout(highlightCode, 100);
     });
 
-    // Set light theme as default (overrides system preference via :root:not(.light))
+    // Set light theme as default (overrides system preference)
     if (!document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
     }
   </script>
 </body>

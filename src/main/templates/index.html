@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Semtx - A minimal CSS framework for HTMX-powered applications with native loading states, swap transitions, and Catppuccin colors.">
+  <meta name="description" content="Lightweight, CSS-3 styling with native HTMX integration. Loading states, swap transitions, and smooth animations.">
   <title>Semtx - modern CSS library</title>
   {% load static %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
       <li><a href="#components">Components</a></li>
       <li><a href="#html5-elements">HTML5</a></li>
       <li><a href="/philosophy">Philosophy</a></li>
-      <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark')">Toggle Theme</button></li>
+      <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
     </ul>
   </nav>
 
@@ -996,9 +996,11 @@
       setTimeout(highlightCode, 100);
     });
 
-    // Set light theme as default (overrides system preference via :root:not(.light))
+    // Set light theme as default (overrides system preference)
     if (!document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
     }
   </script>
 </body>
