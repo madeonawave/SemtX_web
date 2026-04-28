@@ -711,6 +711,12 @@ ul, ol {
   height: 1em;
 }
 
+/* Active/pressed state */
+.btn:active {
+  color: var(--on-primary);
+  filter: brightness(0.8);
+}
+
 /* Button Loading State */
 .btn.loading {
   position: relative;
