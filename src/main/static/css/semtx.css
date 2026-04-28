@@ -1,4 +1,4 @@
-/* semtx - Minimal CSS framework for HTMX */
+/* semtx - CSS library for the modern web */
 
 /* ============================================
    CSS CUSTOM PROPERTIES
@@ -75,7 +75,8 @@
 }
 
 /* Dark Theme */
-:root.dark {
+:root.dark,
+:root:not(.light) {
   --primary: oklch(0.87 0.04 96.18);
   --primary-rgb: rgb(112 91 155);
   --on-primary: oklch(21% 3% 284deg);
@@ -98,33 +99,6 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
   --shadow: 0 4px 6px rgba(0,0,0,0.3);
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --primary: oklch(0.87 0.04 96.18);
-    --primary-rgb: rgb(112 91 155);
-    --on-primary: oklch(21% 3% 284deg);
-    --text: oklch(88% 4% 272deg);
-    --text-sub: oklch(82% 4% 273deg);
-    --bg-base: oklch(24% 3% 284deg);
-    --bg-mantle: oklch(22% 3% 284deg);
-    --bg-surface: oklch(32% 3% 282deg);
-    --bg-overlay: oklch(39% 3% 276deg);
-    --border: oklch(32% 3% 282deg);
-
-    --red: oklch(76% 18% 3deg);
-    --peach: oklch(82% 15% 53deg);
-    --yellow: oklch(92% 12% 87deg);
-    --green: oklch(86% 16% 143deg);
-    --teal: oklch(86% 14% 183deg);
-    --sky: oklch(85% 14% 210deg);
-    --blue: oklch(77% 16% 260deg);
-
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
-    --shadow: 0 4px 6px rgba(0,0,0,0.3);
-    --shadow-lg: 0 10px 15px rgba(0,0,0,0.3);
-  }
 }
 
 /* ============================================
