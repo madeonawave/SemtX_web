@@ -536,7 +536,7 @@
     <!-- HTML5 Dialog -->
     <div class="card-flat mt-4">
       <p class="label-uppercase">HTML5 Dialog (without HTMX)</p>
-      <button class="btn btn-primary mb-2" onclick="document.getElementById('demo-dialog').showModal()">
+      <button class="btn btn-primary" onclick="document.getElementById('demo-dialog').showModal()">
         Open Dialog
       </button>
       <dialog id="demo-dialog">
@@ -565,7 +565,7 @@
     <!-- HTML5 Dialog with HTMX -->
     <div class="card-flat mt-4">
       <p class="label-uppercase">HTML5 Dialog (with HTMX)</p>
-      <button class="btn btn-primary mb-2" 
+      <button class="btn btn-primary"
               hx-get="/dialog-content"
               hx-target="#demo-dialog-hx .dialog-body"
               hx-swap="innerHTML"
