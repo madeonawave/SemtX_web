@@ -127,3 +127,35 @@ pre[class*="language-"] {
 .token.italic {
   font-style: italic;
 }
+
+/* Comparison table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: var(--space-3);
+  border: var(--border-w) solid var(--border);
+  text-align: left;
+}
+
+.comparison-table th {
+  background: var(--bg-mantle);
+  font-weight: 600;
+}
+
+.comparison-table .winner {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.comparison-table .loser {
+  color: var(--text-sub);
+}
+
+.bloated-example {
+  opacity: 0.85;
+}
