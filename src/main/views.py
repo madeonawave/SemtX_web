@@ -206,9 +206,7 @@ def tab_content_view(request):
 @csrf_exempt
 def breadcrumb_content_view(request):
     """HTMX endpoint for breadcrumb content"""
-    import time
-
-    time.sleep(0.5)
+    sleep(0.5)
 
     page = request.GET.get("page", "")
 
@@ -227,9 +225,7 @@ def breadcrumb_content_view(request):
 @csrf_exempt
 def pagination_content_view(request):
     """HTMX endpoint for pagination content"""
-    import time
-
-    time.sleep(0.3)
+    sleep(0.3)
 
     page = request.GET.get("page", "1")
 
@@ -248,9 +244,7 @@ def pagination_content_view(request):
 @csrf_exempt
 def modal_content_view(request):
     """HTMX endpoint for modal content"""
-    import time
-
-    time.sleep(0.5)
+    sleep(0.2)
 
     modal_type = request.GET.get("type", "default")
 
@@ -260,3 +254,17 @@ def modal_content_view(request):
         return render(request, "partials/modal_large.html")
     else:
         return render(request, "partials/modal_default.html")
+
+
+@csrf_exempt
+def dialog_content_view(request):
+    """HTMX endpoint for dialog content"""
+    sleep(0.3)
+
+    # Return HTML content for dialog body
+    html = """
+    <p>This content is loaded via HTMX into the HTML5 dialog.</p>
+    <p class="mt-3 text-secondary">You can load dynamic content, forms, or any partial template here.</p>
+    <p> It shows a spinner while loading.</p>
+    """
+    return HttpResponse(html)

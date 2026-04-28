@@ -482,7 +482,7 @@
 
   <!-- Modals -->
   <section class="container demo-section">
-    <h2 class="title-lg">Modals</h2>
+    <h2 class="title-lg">Modals & Dialog</h2>
     <p class="subtitle">CSS-driven modals with data attributes.</p>
 
     <div class="demo-row">
@@ -531,6 +531,71 @@
           <span class="spinner"></span>
         </div>
       </div>
+    </div>
+
+    <!-- HTML5 Dialog -->
+    <div class="card-flat mt-4">
+      <p class="label-uppercase">HTML5 Dialog (without HTMX)</p>
+      <button class="btn btn-primary mb-2" onclick="document.getElementById('demo-dialog').showModal()">
+        Open Dialog
+      </button>
+      <dialog id="demo-dialog">
+        <form method="dialog">
+          <div class="dialog-header">
+            <h3 class="font-semibold">Dialog Title</h3>
+            <button class="btn btn-ghost" value="cancel">✕</button>
+          </div>
+          <div class="dialog-body">
+            <p>This is a native HTML5 dialog element. Click outside or use the close button.</p>
+          </div>
+          <div class="dialog-footer">
+            <button class="btn btn-outline" value="cancel">Cancel</button>
+            <button class="btn btn-primary" value="confirm">Confirm</button>
+          </div>
+        </form>
+      </dialog>
+      <pre><code class="language-html">&lt;dialog id="my-dialog"&gt;
+  &lt;form method="dialog"&gt;
+    &lt;button value="cancel"&gt;Cancel&lt;/button&gt;
+    &lt;button value="confirm"&gt;Confirm&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;</code></pre>
+    </div>
+
+    <!-- HTML5 Dialog with HTMX -->
+    <div class="card-flat mt-4">
+      <p class="label-uppercase">HTML5 Dialog (with HTMX)</p>
+      <button class="btn btn-primary mb-2" 
+              hx-get="/dialog-content"
+              hx-target="#demo-dialog-hx .dialog-body"
+              hx-swap="innerHTML"
+              onclick="document.getElementById('demo-dialog-hx').showModal()">
+        Open with HTMX Content
+      </button>
+      <dialog id="demo-dialog-hx">
+        <div class="dialog-header">
+          <h3 class="font-semibold">HTMX Loaded Content</h3>
+          <button type="button" class="btn btn-ghost" onclick="this.closest('dialog').close()">✕</button>
+        </div>
+        <div class="dialog-body">
+          <div class="flex items-center justify-center p-4">
+            <span class="spinner"></span>
+          </div>
+        </div>
+        <div class="dialog-footer">
+          <button type="button" class="btn btn-outline" onclick="this.closest('dialog').close()">Close</button>
+          <button class="btn btn-primary">Confirm</button>
+        </div>
+      </dialog>
+      <pre><code class="language-html">&lt;button hx-get="/content" 
+         hx-target="#dialog-body"
+         onclick="dialog.showModal()"&gt;
+   Open
+ &lt;/button&gt;
+
+ &lt;dialog&gt;
+   &lt;div id="dialog-body"&gt;&lt;/div&gt;
+ &lt;/dialog&gt;</code></pre>
     </div>
   </section>
 
@@ -890,6 +955,22 @@
           modal.classList.remove('open');
         });
       }
+    });
+
+    // HTML5 Dialog: close when clicking outside
+    document.querySelectorAll('dialog').forEach(dialog => {
+      dialog.addEventListener('click', (e) => {
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog = (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+        );
+        if (!isInDialog) {
+          dialog.close();
+        }
+      });
     });
 
     // ============================================

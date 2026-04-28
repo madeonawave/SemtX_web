@@ -30,6 +30,7 @@ from main.views import (
     modal_content_view,
     pending_content_view,
     philosophy_view,
+    dialog_content_view,
 )
 
 urlpatterns = [
@@ -44,5 +45,6 @@ urlpatterns = [
     path("breadcrumb-content", breadcrumb_content_view, name="breadcrumb_content"),
     path("pagination-content", pagination_content_view, name="pagination_content"),
     path("modal-content", modal_content_view, name="modal_content"),
+    path("dialog-content", dialog_content_view, name="dialog_content"),
     path("pending-content", pending_content_view, name="pending_content"),
 ]
