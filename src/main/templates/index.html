@@ -23,13 +23,18 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/" class="navbar-brand" style="font-family: 'Stack Sans Notch', sans-serif;">Semtx</a>
-    <ul class="navbar-nav">
-      <li><a href="#getting-started">Install</a></li>
-      <li><a href="#components">Components</a></li>
-      <li><a href="#html5-elements">HTML5</a></li>
-      <li><a href="/philosophy">Philosophy</a></li>
-      <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
-    </ul>
+    <button class="navbar-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active');document.querySelector('.navbar-collapse').classList.toggle('active')">
+      <span></span>
+    </button>
+    <div class="navbar-collapse">
+      <ul class="navbar-nav">
+        <li><a href="#getting-started">Install</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#html5-elements">HTML5</a></li>
+        <li><a href="/philosophy">Philosophy</a></li>
+        <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Hero -->
@@ -754,7 +759,6 @@
     <p class="subtitle">Headings, code, blockquotes, figures, and prose.</p>
 
     <div class="two-col">
-
       <div>
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
@@ -772,14 +776,14 @@
   color: var(--primary);
 }</code></pre>
       </div>
+    </div>
 
-      <div class="card-flat" style="grid-column: span 2;">
-        <p class="label-uppercase">Figures</p>
-        <figure class="mt-2">
-          <img src="https://placehold.co/400x200/a5a5a5/888888?text=Image" alt="Sample image">
-          <figcaption>A sample figure with caption text.</figcaption>
-        </figure>
-      </div>
+    <div class="card-flat mt-4">
+      <p class="label-uppercase">Figures</p>
+      <figure class="mt-2">
+        <img src="https://placehold.co/400x200/a5a5a5/888888?text=Image" alt="Sample image">
+        <figcaption>A sample figure with caption text.</figcaption>
+      </figure>
     </div>
   </section>
 

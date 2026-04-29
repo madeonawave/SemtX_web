@@ -18,13 +18,18 @@
     <!-- Navbar -->
     <nav class="navbar">
       <a href="/" class="navbar-brand" style="font-family: 'Stack Sans Notch', sans-serif;">Semtx</a>
-      <ul class="navbar-nav">
-        <li><a href="/#getting-started">Install</a></li>
-        <li><a href="/#components">Components</a></li>
-        <li><a href="/#html5-elements">HTML5</a></li>
-        <li><a href="/philosophy" class="text-primary">Philosophy</a></li>
-        <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
-      </ul>
+      <button class="navbar-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active');document.querySelector('.navbar-collapse').classList.toggle('active')">
+        <span></span>
+      </button>
+      <div class="navbar-collapse">
+        <ul class="navbar-nav">
+          <li><a href="/#getting-started">Install</a></li>
+          <li><a href="/#components">Components</a></li>
+          <li><a href="/#html5-elements">HTML5</a></li>
+          <li><a href="/philosophy" class="text-primary">Philosophy</a></li>
+          <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Hero -->
@@ -305,7 +310,7 @@
           <tr>
             <td>File size</td>
             <td class="loser">~50-100KB+</td>
-            <td class="winner">~8KB</td>
+            <td class="winner">~30KB</td>
           </tr>
           <tr>
             <td>AI understanding</td>

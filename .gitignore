@@ -11,3 +11,4 @@ wheels/
 .env
 
 src/staticfiles/
+src/server.log
