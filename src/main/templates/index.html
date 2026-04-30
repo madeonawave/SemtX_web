@@ -111,34 +111,42 @@
 
     <div class="two-col">
       <div class="card-flat">
+        <p class="label-uppercase">Semantic (no class needed)</p>
+        <div class="demo-row">
+          <button>Default</button>
+          <button disabled>Disabled</button>
+        </div>
+        <p class="text-sm text-secondary mt-2">The <code>&lt;button&gt;</code> element is styled directly. Use modifier classes for variants.</p>
+      </div>
+
+      <div class="card-flat">
         <p class="label-uppercase">Variants</p>
         <div class="demo-row">
-          <button class="btn btn-primary">Primary</button>
-          <button class="btn btn-secondary">Secondary</button>
-          <button class="btn btn-outline">Outline</button>
-          <button class="btn btn-ghost">Ghost</button>
-        </div>
-        <div class="demo-row mt-2">
-          <button class="btn btn-danger">Danger</button>
-          <button class="btn btn-link">Link</button>
+          <button class="btn-primary">Primary</button>
+          <button class="btn-secondary">Secondary</button>
+          <button class="btn-outline">Outline</button>
+          <button class="btn-ghost">Ghost</button>
+        </div>     <div class="demo-row mt-2">
+          <button class="btn-danger">Danger</button>
+          <button class="btn-link">Link</button>
         </div>
       </div>
 
       <div class="card-flat">
         <p class="label-uppercase">Sizes</p>
         <div class="demo-row">
-          <button class="btn btn-sm btn-primary">Small</button>
-          <button class="btn btn-primary">Medium</button>
-          <button class="btn btn-lg btn-primary">Large</button>
+          <button class="btn-sm btn-primary">Small</button>
+          <button class="btn-primary">Medium</button>
+          <button class="btn-lg btn-primary">Large</button>
         </div>
       </div>
 
       <div class="card-flat">
         <p class="label-uppercase">States</p>
         <div class="demo-row">
-          <button class="btn btn-primary">Normal</button>
-          <button class="btn btn-primary" disabled>Disabled</button>
-          <button class="btn btn-primary loading">Loading</button>
+          <button class="btn-primary">Normal</button>
+          <button class="btn-primary" disabled>Disabled</button>
+          <button class="btn-primary loading">Loading</button>
         </div>
         <p class="text-sm text-secondary mt-2">Buttons show visual feedback on press via CSS <code>:active</code> pseudo-class.</p>
       </div>
@@ -773,7 +781,7 @@
         <blockquote>This is a blockquote. It's great for quotes.</blockquote>
         <p>Inline <code>code</code> example.</p>
         <pre><code># code block example
-.btn {
+button {
   color: var(--primary);
 }</code></pre>
       </div>
