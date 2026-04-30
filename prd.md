@@ -151,7 +151,7 @@
 
 - Focus visible: 2px outline
 - Reduced motion: `@media (prefers-reduced-motion)`
-- Minimum touch targets: 44x44px
+
 
 ---
 
