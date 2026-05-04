@@ -32,7 +32,7 @@
         <li><a href="#components">Components</a></li>
         <li><a href="#html5-elements">HTML5</a></li>
         <li><a href="/philosophy">Philosophy</a></li>
-        <li><button class="btn btn-sm btn-outline" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light');">Toggle Theme</button></li>
+        <li><button id="toggle" class="btn-sm btn-outline" >Toggle Theme</button></li>
       </ul>
     </div>
   </nav>
@@ -1104,12 +1104,27 @@ button {
       setTimeout(highlightCode, 100);
     });
 
-    // Set light theme as default (overrides system preference)
-    if (!document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.add('light');
-    } else {
-      document.documentElement.classList.remove('light');
+
+    function getSystemPreference() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
+
+    function applyTheme(theme) {
+      if (theme) {
+        root.setAttribute('data-theme', theme);
+      } else {
+        root.removeAttribute('data-theme'); // fall back to OS
+      }
+    }
+
+    const root = document.documentElement;
+    // Toggle button
+    document.getElementById('toggle').addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') || getSystemPreference();
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+
   </script>
 </body>
 </html>
