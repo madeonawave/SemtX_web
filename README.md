@@ -1,15 +1,12 @@
 # semtx
 
-A Django-powered demo and showcase for semtx, a minimal CSS framework designed for HTMX-powered applications.
+This is the website for https://semtx.org 
 
-## What is semtx?
+A Django-powered demo and showcase for Semtx CSS, a minimal CSS library.
 
-semtx is a lightweight, modern CSS framework built specifically for HTMX applications. It provides:
+## What is Semtx?
 
-- **HTMX-Native**: First-class support for loading states, indicators, and swap transitions
-- **Catppuccin Colors**: Beautiful light and dark themes
-- **Zero Dependencies**: Single CSS file, no JavaScript required for styling
-- **Accessible**: Focus states, reduced motion support, 44px minimum touch targets
+Semtx is a lightweight, modern, (mostly) Semantic CSS library. 
 
 ## Project Structure
 
@@ -39,7 +36,7 @@ The demo showcases:
 The CSS file is located at `src/main/static/css/semtx.css`. Key features:
 
 - CSS custom properties for theming
-- Semantic class names (e.g., `.card-body`, `.btn-primary`)
-- Responsive breakpoints (sm: 640px, md: 768px, lg: 1024px)
-- HTMX-specific classes (`.htmx-indicator`, `.htmx-request`)
+- Semantic class names (e.g., `article`, `button`, `.btn-primary`)
+- Responsive breakpoints
+- HTMX-specific classes for transitions, loaders/ spinner
 
