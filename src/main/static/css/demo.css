@@ -159,3 +159,97 @@ pre[class*="language-"] {
 .bloated-example {
   opacity: 0.85;
 }
+
+/* Fade Card - Code Snippet Feature */
+.code-card {
+  position: relative;
+}
+
+.code-card-front,
+.code-card-back {
+  transition: opacity 0.5s ease;
+  min-height: 100%;
+}
+
+.code-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.code-card.show-code .code-card-front {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.code-card.show-code .code-card-back {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Flip Toggle Button */
+.flip-toggle {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 10;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono);
+  background: var(--bg-surface);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-sub);
+  min-height: 22px;
+}
+
+.flip-toggle:hover {
+  background: var(--bg-mantle);
+  color: var(--text);
+}
+
+.flip-toggle:focus {
+  outline: none;
+}
+
+/* Code Block in Code Card */
+.code-card-back {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-card-back .code-block {
+  flex: 1;
+  margin: 0;
+  overflow-y: auto;
+  line-height: 1.6;
+  white-space: pre;
+  word-break: break-all;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--bg-base);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.code-card-back .code-block code {
+  font-family: inherit;
+}
+
+/* Card header with flip button */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.card-header-row .label-uppercase {
+  margin: 0;
+}
