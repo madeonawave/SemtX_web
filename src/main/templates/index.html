@@ -206,32 +206,32 @@
         <div class="code-card-front">
           <p class="label-uppercase">Text Inputs</p>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="you@example.com">
+            <label for="demo-email">Email</label>
+            <input type="email" id="demo-email" placeholder="you@example.com">
           </div>
           <div class="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="••••••••">
+            <label for="demo-password">Password</label>
+            <input type="password" id="demo-password" placeholder="••••••••">
           </div>
           <div class="form-group">
-            <label>Small Input</label>
-            <input type="text" class="form-input-sm" placeholder="Small">
+            <label for="demo-small">Small Input</label>
+            <input type="text" id="demo-small" class="form-input-sm" placeholder="Small">
           </div>
         </div>
         <div class="code-card-back">
           <div class="code-block"><code>&lt;div class="form-group"&gt;
-  &lt;label&gt;Email&lt;/label&gt;
-  &lt;input type="email" placeholder="you@example.com"&gt;
+  &lt;label for="demo-email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="demo-email" placeholder="you@example.com"&gt;
 &lt;/div&gt;
 
 &lt;div class="form-group"&gt;
-  &lt;label&gt;Password&lt;/label&gt;
-  &lt;input type="password" placeholder="••••••••"&gt;
+  &lt;label for="demo-password"&gt;Password&lt;/label&gt;
+  &lt;input type="password" id="demo-password" placeholder="••••••••"&gt;
 &lt;/div&gt;
 
 &lt;div class="form-group"&gt;
-  &lt;label&gt;Small Input&lt;/label&gt;
-  &lt;input type="text" class="input-sm" placeholder="Small"&gt;
+  &lt;label for="demo-small"&gt;Small Input&lt;/label&gt;
+  &lt;input type="text" id="demo-small" class="input-sm" placeholder="Small"&gt;
 &lt;/div&gt;</code></div>
         </div>
       </div>
@@ -286,14 +286,17 @@
             <span>Newsletter</span>
           </label>
           <hr class="divider">
-          <label class="form-check">
-            <input type="radio" name="demo" id="demo-option-a" checked>
-            <span>Option A</span>
-          </label>
-          <label class="form-check">
-            <input type="radio" name="demo" id="demo-option-b">
-            <span>Option B</span>
-          </label>
+          <fieldset>
+            <legend>Options</legend>
+            <label class="form-check">
+              <input type="radio" name="demo" id="demo-option-a" checked>
+              <span>Option A</span>
+            </label>
+            <label class="form-check">
+              <input type="radio" name="demo" id="demo-option-b">
+              <span>Option B</span>
+            </label>
+          </fieldset>
         </div>
         <div class="code-card-back">
           <div class="code-block"><code>&lt;label class="form-check"&gt;
@@ -301,10 +304,13 @@
   &lt;span&gt;Accept terms&lt;/span&gt;
 &lt;/label&gt;
 
-&lt;label class="form-check"&gt;
-  &lt;input type="radio" name="demo"&gt;
-  &lt;span&gt;Option A&lt;/span&gt;
-&lt;/label&gt;</code></div>
+&lt;fieldset&gt;
+  &lt;legend&gt;Options&lt;/legend&gt;
+  &lt;label class="form-check"&gt;
+    &lt;input type="radio" name="demo"&gt;
+    &lt;span&gt;Option A&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/fieldset&gt;</code></div>
         </div>
       </div>
 
@@ -603,59 +609,86 @@
   <!-- Modals -->
   <section class="container demo-section">
     <h2 class="title-lg">Modals & Dialog</h2>
-    <p class="subtitle">CSS-driven modals with data attributes.</p>
+    <p class="subtitle">Native HTML5 dialog with HTMX loading.</p>
 
     <div class="demo-row">
       <button class="btn btn-primary" 
               hx-get="/modal-content?type=default" 
-              hx-target="#demo-modal .modal-content"
+              hx-target="#demo-dialog-default .dialog-body"
               hx-swap="innerHTML"
-              data-modal="#demo-modal">Open Modal</button>
-      <button class="btn btn-outline" 
+              onclick="document.getElementById('demo-dialog-default').showModal()">Open Dialog</button>
+      <button class="btn btn-outline"
               hx-get="/modal-content?type=small" 
-              hx-target="#demo-modal-sm .modal-content"
+              hx-target="#demo-dialog-sm .dialog-body"
               hx-swap="innerHTML"
-              data-modal="#demo-modal-sm">Small</button>
-      <button class="btn btn-outline" 
+              onclick="document.getElementById('demo-dialog-sm').showModal()">Small</button>
+      <button class="btn btn-outline"
               hx-get="/modal-content?type=large" 
-              hx-target="#demo-modal-lg .modal-content"
+              hx-target="#demo-dialog-lg .dialog-body"
               hx-swap="innerHTML"
-              data-modal="#demo-modal-lg">Large</button>
+              onclick="document.getElementById('demo-dialog-lg').showModal()">Large</button>
     </div>
 
-    <!-- Demo Modal -->
-    <div id="demo-modal" class="modal" role="dialog">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-content">
-        <div class="p-8 flex items-center justify-center">
-          <span class="spinner"></span>
+    <!-- Default Dialog -->
+    <dialog id="demo-dialog-default" class="dialog-default">
+      <form method="dialog">
+        <div class="dialog-header">
+          <h3 class="font-semibold">Modal Title</h3>
+          <button type="submit" class="btn btn-ghost" value="cancel">&times;</button>
         </div>
-      </div>
-    </div>
+        <div class="dialog-body">
+          <div class="flex items-center justify-center p-8">
+            <span class="spinner"></span>
+          </div>
+        </div>
+        <div class="dialog-footer">
+          <button type="submit" class="btn btn-ghost" value="cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" value="confirm">Confirm</button>
+        </div>
+      </form>
+    </dialog>
 
-    <!-- Small Modal -->
-    <div id="demo-modal-sm" class="modal modal-sm" role="dialog">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-content">
-        <div class="p-4 flex items-center justify-center">
-          <span class="spinner"></span>
+    <!-- Small Dialog -->
+    <dialog id="demo-dialog-sm" class="dialog-sm">
+      <form method="dialog">
+        <div class="dialog-header">
+          <h3 class="font-semibold">Small Modal</h3>
+          <button type="submit" class="btn btn-ghost" value="cancel">&times;</button>
         </div>
-      </div>
-    </div>
+        <div class="dialog-body">
+          <div class="flex items-center justify-center p-4">
+            <span class="spinner"></span>
+          </div>
+        </div>
+        <div class="dialog-footer">
+          <button type="submit" class="btn btn-ghost" value="cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" value="confirm">Confirm</button>
+        </div>
+      </form>
+    </dialog>
 
-    <!-- Large Modal -->
-    <div id="demo-modal-lg" class="modal modal-lg" role="dialog">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-content">
-        <div class="p-8 flex items-center justify-center">
-          <span class="spinner"></span>
+    <!-- Large Dialog -->
+    <dialog id="demo-dialog-lg" class="dialog-lg">
+      <form method="dialog">
+        <div class="dialog-header">
+          <h3 class="font-semibold">Large Modal</h3>
+          <button type="submit" class="btn btn-ghost" value="cancel">&times;</button>
         </div>
-      </div>
-    </div>
+        <div class="dialog-body">
+          <div class="flex items-center justify-center p-8">
+            <span class="spinner"></span>
+          </div>
+        </div>
+        <div class="dialog-footer">
+          <button type="submit" class="btn btn-ghost" value="cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" value="confirm">Confirm</button>
+        </div>
+      </form>
+    </dialog>
 
     <!-- HTML5 Dialog -->
     <div class="card-flat mt-4">
-      <p class="label-uppercase">HTML5 Dialog (without HTMX)</p>
+      <p class="label-uppercase">Native HTML5 Dialog (without HTMX)</p>
       <button class="btn btn-primary" onclick="document.getElementById('demo-dialog').showModal()">
         Open Dialog
       </button>
@@ -776,14 +809,15 @@
       </div>
 
       <div class="card-flat">
-        <p class="label-uppercase">Active Search (HTMX)</p>
-        <div class="input-search">
-          <span class="input-search-icon">&#128269;</span>
-          <input type="search" 
-                 id="search-demo" 
-
-                 placeholder="Type to search..."
-                 name="q"
+<p class="label-uppercase">Active Search (HTMX)</p>
+        <div class="form-group">
+          <label for="search-demo" class="visually-hidden">Search</label>
+          <div class="input-search">
+            <span class="input-search-icon">&#128269;</span>
+            <input type="search" 
+                   id="search-demo" 
+                   placeholder="Type to search..."
+                   name="q"
                  hx-post="/search"
                  hx-trigger="input changed delay:200ms, keyup[key=='Enter']"
                  hx-target="#search-tbody"
@@ -791,6 +825,7 @@
           <span id="search-indicator" class="htmx-indicator" style="display: none; position: absolute; right: 8px; top: 50%; transform: translateY(-50%);">
             <span class="htmx-requesting.htmx-indicator"></span>
           </span>
+        </div>
         </div>
         <div id="search-results" class="table-wrapper mt-2">
           <table class="table table-sm">
@@ -1087,52 +1122,15 @@ button {
       });
     });
 
-    // Modal toggle
-    document.querySelectorAll('[data-modal]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.modal;
-        document.querySelector(target).classList.add('open');
-      });
-    });
-
-    document.querySelectorAll('[data-modal-close]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.target.closest('.modal').classList.remove('open');
-      });
-    });
-
-    // Event delegation for dynamically loaded content
-    document.addEventListener('click', (e) => {
-      if (e.target.matches('[data-modal-close]')) {
-        e.target.closest('.modal').classList.remove('open');
-      }
-    });
-
-    // Close modal on backdrop click
-    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-      backdrop.addEventListener('click', () => {
-        backdrop.closest('.modal').classList.remove('open');
-      });
-    });
-
-    // Close on escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.open').forEach(modal => {
-          modal.classList.remove('open');
-        });
-      }
-    });
-
-    // HTML5 Dialog: close when clicking outside
+    // HTML5 Dialog: close when clicking outside (on backdrop)
     document.querySelectorAll('dialog').forEach(dialog => {
       dialog.addEventListener('click', (e) => {
         const rect = dialog.getBoundingClientRect();
         const isInDialog = (
-          e.clientX >= rect.left &&
-          e.clientX <= rect.right &&
-          e.clientY >= rect.top &&
-          e.clientY <= rect.bottom
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width
         );
         if (!isInDialog) {
           dialog.close();
